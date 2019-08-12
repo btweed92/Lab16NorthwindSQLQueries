@@ -1,0 +1,44 @@
+Select * From Customers;
+
+Select DISTINCT Country from Customers;
+
+Select * From Customers Where customerID LIKE 'BL%'
+
+Select Top 100 * from Orders
+
+--Select * From Customers Where PostalCode = '1010' 
+Or PostalCode ='3012' 
+OR postalcode='12209' 
+OR postalcode='05023'
+
+Select * From Orders Where ShipRegion Is Not Null
+
+Select * from Customers Order By Country, City
+
+Insert into Customers(CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax)
+Values('99', 'Grand Circus', 'Brandyn Tweedly', 'Student', '27921 Larchmont', 'St Clair Shores', 'Michigan', '48081', 'United States', '5868591156', '1234567890')
+
+Update Orders Set ShipRegion = 'EuroZone' Where ShipCountry = 'France'
+
+Delete From [Order Details] Where Quantity = 1
+
+Select AVG(Quantity) As Average From [Order Details]
+Select MAX(Quantity) As Largest From [Order Details]
+Select MIN(Quantity) As Smallest From [Order Details]
+
+Select AVG(Quantity) As Average,
+MAX(Quantity) As Largest,
+MIN(Quantity) As Smallest
+From [Order Details]
+Group By OrderID
+
+Select customerID From Orders Where orderID = '10290'
+
+SELECT Orders.OrderID, Customers.ContactName, Orders.OrderDate FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID
+SELECT * FROM Orders LEFT JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+SELECT * FROM Orders Right JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+
+Select FirstName from Employees Where ReportsTo Is Null
+
+Select FirstName from Employees Where ReportsTo = 2
